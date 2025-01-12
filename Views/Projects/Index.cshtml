@@ -1,0 +1,21 @@
+﻿@model IEnumerable<PortfolioProject.Models.Project>
+
+@{
+    Layout = "_Layout";
+}
+
+<h1 class="main-title">My Projects</h1>
+<div class="projects-container">
+    @foreach (var item in Model) {
+        <div class="project-card">
+            <h2 class="project-name">@item.name</h2>
+            <p class="project-description">Description: @(string.IsNullOrEmpty(item.description) ? "No Description" : item.description) </p>
+            <p class="project-language">Language: @item.language</p>
+            <p class="project-dates">
+                Created: @item.created_at <br />
+                Updated: @item.updated_at
+            </p>
+            <a class="project-link" href="@item.html_url" target="_blank">View on GitHub</a>
+        </div>
+    }
+</div>
